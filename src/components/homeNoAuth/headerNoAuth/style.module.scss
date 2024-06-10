@@ -1,0 +1,13 @@
+@import "../../../../styles/colors.module.scss";
+
+.ctaSection {
+    background-color: $lightRed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 0px;
+    gap: 30px;
+}
+.imgCta{
+    width: 20px;
+}
