@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from './style.module.scss'
+import Link from 'next/link';
+import styles from './styles.module.scss'
 import { Button , Container } from 'reactstrap';
 
 const HeaderNoAuth = () =>{
@@ -13,16 +14,23 @@ const HeaderNoAuth = () =>{
     <p>
         Se cadastre para ter acesso aos cursos
     </p>
-    <img src="/homeNoAuth/iconSearch.svg" 
+    <img src="/homeNoAuth/logoCta.png" 
         alt="logo-cta" 
         className= {styles.imgCta}/>
     </div>
-    <Container>
-        <img src="/logoOnebitflix.svg" alt="logo-onebitflix" />
+    <Container className={styles.nav}>
+        <img src="/logoOnebitflix.svg" alt="logo-onebitflix" className={styles.imgLogoNav} />
         <div>
-            <Button outline color='primary'>
+            <Link href="/login">
+                    <Button className={styles.navBtn}outline >
                 Entrar
             </Button>
+            </Link>
+            <Link href="/register">
+            <Button className={styles.navBtn}outline>
+                Quero Fazer Parte
+            </Button>
+            </Link>
         </div>
     </Container>
     </>
