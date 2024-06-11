@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Container } from "reactstrap"
 import styles from "./styles.module.scss"
 
