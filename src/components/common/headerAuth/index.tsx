@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link"
 import { Container, Form, Input } from "reactstrap"
 import styles from"./styles.module.scss"
