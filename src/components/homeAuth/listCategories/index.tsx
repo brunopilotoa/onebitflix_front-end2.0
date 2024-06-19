@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import styles from "../../../../styles/slideCategory.module.scss"
-import categoriesService, { CategoryType } from "@/services/categoryService";
-import ListCategoriesSlide from "../listCategorySlide";
+import categoriesService, { CategoryType } from "@/services/categoriesService";
+import ListCategoriesSlide from "../listCategoriesSlide";
 
 const ListCategories = function (){
     const {data,error} = useSWR("/listCategories",categoriesService.getCategories);
@@ -17,8 +17,8 @@ const ListCategories = function (){
             {data.data.categories?.map((category:CategoryType)=>(
                 <ListCategoriesSlide
                 key={category.id}
-      categoryId={category.id}
-      categoryName={category.name}
+                categoryId={category.id}
+                categoryName={category.name}
       />
             )
             )}

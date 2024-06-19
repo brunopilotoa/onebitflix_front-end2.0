@@ -19,7 +19,7 @@ const categoriesService = {
         }).catch((error)=>{
             return error.response ;
         });
-        return res
+        return res ;
     },
     getCourses : async (id:number) => {
         const token = sessionStorage.getItem("onebitflix-token");

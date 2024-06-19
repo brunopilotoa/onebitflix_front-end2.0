@@ -4,13 +4,13 @@ import "@splidejs/splide/dist/css/splide.min.css"
 import SlideCard from "../slideCard";
 
 interface props{
-    course: CourseType [];
+    course : CourseType [];
 }
 
 const SlideComponent = function ({course}:props){
     let slideCount = 0;
-    if(course.length>4){
-        slideCount =4
+    if(course.length > 4){
+        slideCount = 4
     }else if(course){
         slideCount = course.length ;
     }
