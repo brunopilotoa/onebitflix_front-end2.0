@@ -34,7 +34,7 @@ const Search = function () {
                 <HeaderAuth/>
                 </div>
                 {searchResult.length>=1 ? (
-                    <div className={styles.searchResult}>
+                    <div className={styles.searchContainer}>
 
                     <Container className="d-flex flex-wrap justify-content-center gap-5 py-4">
                         {searchResult?.map((course)=>
@@ -44,7 +44,9 @@ const Search = function () {
                     </Container>
                     </div>
             ):(
+                <div className={styles.searchContainer}>
                     <p className={styles.noSearchResult}> NENHUM RESULTADO ENCONTRADO</p>
+                        </div>
                 )}
                 <div className={styles.headFooterBg}>
                 <Footer/>
