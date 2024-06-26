@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import courseService  from "@/services/courseService";
 import { CourseType } from "@/services/courseService";
+import { Container } from "reactstrap";
+import SearchCard from "@/components/searchCard";
 
 
 const Search = function () {
@@ -27,12 +29,26 @@ const Search = function () {
                 </title>
                 <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />           
             </Head>
-            <main>
+            <main className={styles.main}>
+                <div className={styles.headFooterBg}>
                 <HeaderAuth/>
-                {searchResult?.map((course)=>
-                    (<div key={course.id}>
-                        <p>{course.name}</p>
-                </div>))}
+                </div>
+                {searchResult.length>=1 ? (
+                    <div className={styles.searchResult}>
+
+                    <Container className="d-flex flex-wrap justify-content-center gap-5 py-4">
+                        {searchResult?.map((course)=>
+                    (
+                        <SearchCard key={course.id} course={course}/>
+                    ))}
+                    </Container>
+                    </div>
+            ):(
+                    <p className={styles.noSearchResult}> NENHUM RESULTADO ENCONTRADO</p>
+                )}
+                <div className={styles.headFooterBg}>
+                <Footer/>
+                </div>
             </main>
         </>
     )
