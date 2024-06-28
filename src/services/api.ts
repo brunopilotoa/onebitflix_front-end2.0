@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
-const baseURL = process.env.NEXT_PUBLIC_BASEURL ;
+const baseURL = process.env.NEXT_PUBLIC_BASEURL;
 
-const api = axios.create ({
-    baseURL,
+const api = axios.create({
+	baseURL,
 });
 
-export default api
+export default api;
