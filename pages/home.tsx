@@ -18,7 +18,7 @@ const HomeAuth = function (){
             <NewestCategory />   
             <FavoriteCategory />
             <FeaturedCategory />
-            {/* <ListCategories />   */}
+            {/* <ListCategories />   */ }
              <Footer/>
         </main>
         </>
