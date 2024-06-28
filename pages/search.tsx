@@ -1,15 +1,28 @@
-import Head from "next/head";
-import styles from "../styles/search.module.scss";
-import HeaderAuth from "@/components/common/headerAuth";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import courseService from "@/services/courseService";
-import { CourseType } from "@/services/courseService";
-import { Container } from "reactstrap";
-import SearchCard from "@/components/searchCard";
+import Head from 'next/head';
+import styles from '../styles/search.module.scss';
+import HeaderAuth from '@/components/common/headerAuth';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import courseService from '@/services/courseService';
+import { CourseType } from '@/services/courseService';
+import { Container } from 'reactstrap';
+import SearchCard from '@/components/searchCard';
 
 const Search = function () {
 	const router = useRouter();
+	const [loading, setLoading] = useState(true);
+
+	useEffect(() => {
+		if (!sessionStorage.getItem('onebitflix-token')) {
+			router.push('/login');
+		} else {
+			setLoading(false);
+		}
+	}, []);
+
+	if (loading) {
+		return <PageSpinner />;
+	}
 	const searchName: any = router.query.name;
 	const [searchResult, setSearchResult] = useState<CourseType[]>([]);
 
@@ -41,7 +54,7 @@ const Search = function () {
 				) : (
 					<div className={styles.searchContainer}>
 						<p className={styles.noSearchResult}>
-							{" "}
+							{' '}
 							NENHUM RESULTADO ENCONTRADO
 						</p>
 					</div>
